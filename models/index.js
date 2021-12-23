@@ -20,6 +20,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.user = require("./user.model.js")(sequelize, Model, DataTypes, db);
+db.chart = require("./chart.model.js")(sequelize, Model, DataTypes, db);
 
 module.exports = db;
