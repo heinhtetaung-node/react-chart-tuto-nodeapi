@@ -12,9 +12,12 @@ app.use(routes);
 
 db.sequelize.sync();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use(express.static("frontend/build/"));
+const frontEndServer = (req, res) => {
+  res.sendFile("frontend/build/index.html", { root: __dirname });
+};
+
+app.get('/', frontEndServer)
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
